@@ -81,7 +81,7 @@ I run Ganache GUI on port 7545, as it provides a better view;
 If you use Ganache GUI too, make sure to go to "Setting", "Accounts & Keys";
 
 If you prefer Ganache-CLI, change the port to 8545 in these files
-truffle-config.js and .env file's LOCAL_RPC_URL
+truffle-config.js and .env file's DEVELOPMENT_RPC_URL
 
 next, launch ganache-cli with 50 accounts
 
@@ -125,7 +125,7 @@ Notice:
 ```
 
 ## 6. Attention
-If you want to run the project, you should copy .env.example file and rename it to .env, then fill values in .env file, 3 parts below:
+If you want to run the project, you should copy .env.example file and rename it to .env. And if you want to run project on other networks instead of the development network, you should fill values in .env file, 3 parts below:
 
 - DEVELOPMENT_RPC_URL, BSC_TEST_RPC_URL, BSC_RPC_URL, RINKEBY_RPC_URL, MAINNET_RPC_URL --- rpc url, according to the NETWORK you choose
 - ETH_ACCOUNT, BSC_ACCOUNT, MAINNET_ACCOUNT --- account to deploy contracts
