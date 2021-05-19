@@ -4,3 +4,5 @@ build
 contracts/flattened/*.sol
 coverage
 coverage.json
+.env
+.info

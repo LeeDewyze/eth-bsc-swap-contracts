@@ -8,7 +8,7 @@ const ERC20EMPTYSYMBOL = artifacts.require("ERC20EMPTYSYMBOL");
 const ERC20EMPTYNAME = artifacts.require("ERC20EMPTYNAME");
 
 const Web3 = require('web3');
-const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
 
 module.exports = function(deployer, network, accounts) {
     owner = accounts[0];
