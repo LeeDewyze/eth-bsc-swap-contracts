@@ -50,8 +50,9 @@ module.exports = {
         return new HDWalletProvider(process.env.BSC_MNEMONIC, process.env.BSC_TEST_RPC_URL);
       },
       network_id: 97,
-      confirmations: 10,
-      timeoutBlocks: 200,
+      confirmations: 1,
+      networkCheckTimeout: 600000,
+      timeoutBlocks: 50,
       skipDryRun: true,
       from: process.env.BSC_ACCOUNT,
     },
@@ -73,7 +74,7 @@ module.exports = {
       gas: 5000000,
       gasPrice: 10000000000,
       from: process.env.ETH_ACCOUNT,
-      timeoutBlocks: 200,
+      timeoutBlocks: 2000,
       confirmations: 2,
       skipDryRun: true
     },
