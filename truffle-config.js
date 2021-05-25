@@ -71,12 +71,13 @@ module.exports = {
         return new HDWalletProvider(process.env.ETH_MNEMONIC, process.env.RINKEBY_RPC_URL);
       },
       network_id: '4',
-      gas: 5000000,
-      gasPrice: 10000000000,
+      gas: 7500000,
+      gasPrice: 2000000000,
       from: process.env.ETH_ACCOUNT,
       timeoutBlocks: 2000,
-      confirmations: 2,
-      skipDryRun: true
+      confirmations: 1,
+      skipDryRun: true,
+      networkCheckTimeout: 60000,
     },
     // to deploy contracts on ethereum mainnet
     mainnet : {

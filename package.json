@@ -27,6 +27,7 @@
     "commander": "^3.0.1",
     "dotenv": "^9.0.2",
     "elliptic": ">=6.5.3",
+    "eth-query": "^2.1.2",
     "ethereum-input-data-decoder": "0.3.0",
     "lodash": ">=4.17.19",
     "mem": ">=4.0.0",

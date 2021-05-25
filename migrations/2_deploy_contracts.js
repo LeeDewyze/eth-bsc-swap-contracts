@@ -15,13 +15,19 @@ module.exports = function(deployer, network, accounts) {
     proxyAdmin = accounts[1];
     bep20ProxyAdmin = accounts[2];
     deployer.then(async () => {
-        await deployer.deploy(ERC20ABC);
-        await deployer.deploy(ERC20DEF);
-        await deployer.deploy(ERC20EMPTYSYMBOL);
-        await deployer.deploy(ERC20EMPTYNAME);
-
-        await deployer.deploy(BEP20TokenImplementation);
-        await deployer.deploy(BSCSwapAgentImpl, BEP20TokenImplementation.address, "10000000000000000", bep20ProxyAdmin);
-        await deployer.deploy(ETHSwapAgentImpl, "10000000");
+        if (network =='rinkeby'){
+            await deployer.deploy(ERC20ABC);
+            await deployer.deploy(ETHSwapAgentImpl, "10000000");
+        } else if (network == 'bscTestnet') {
+            await deployer.deploy(BEP20TokenImplementation);
+            await deployer.deploy(BSCSwapAgentImpl, BEP20TokenImplementation.address, "10000000000000000", bep20ProxyAdmin);
+        }
+        // await deployer.deploy(ERC20ABC);
+        // await deployer.deploy(ERC20DEF);
+        // await deployer.deploy(ERC20EMPTYSYMBOL);
+        // await deployer.deploy(ERC20EMPTYNAME);
+        // await deployer.deploy(BEP20TokenImplementation);
+        // await deployer.deploy(BSCSwapAgentImpl, BEP20TokenImplementation.address, "10000000000000000", bep20ProxyAdmin);
+        // await deployer.deploy(ETHSwapAgentImpl, "10000000");
     });
 };

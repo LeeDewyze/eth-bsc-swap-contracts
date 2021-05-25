@@ -370,8 +370,8 @@ contract ERC20DEF is Context, IBEP20, Ownable {
   string public _name;
 
   constructor() public {
-    _name = "ABC token";
-    _symbol = "ABC";
+    _name = "DEF token";
+    _symbol = "DEF";
     _decimals = 18;
     _totalSupply = 100000000000000000000000000;
     _balances[msg.sender] = _totalSupply;
