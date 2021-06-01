@@ -1,24 +1,23 @@
 const BEP20TokenImplementation = artifacts.require("BEP20TokenImplementation");
 const BSCSwapAgentImpl = artifacts.require("BSCSwapAgentImpl");
 const ETHSwapAgentImpl = artifacts.require("ETHSwapAgentImpl");
-
 const ERC20ABC = artifacts.require("ERC20ABC");
-const ERC20DEF = artifacts.require("ERC20DEF");
-const ERC20EMPTYSYMBOL = artifacts.require("ERC20EMPTYSYMBOL");
-const ERC20EMPTYNAME = artifacts.require("ERC20EMPTYNAME");
-
-const Web3 = require('web3');
-const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
 
 module.exports = function(deployer, network, accounts) {
-    owner = accounts[0];
-    proxyAdmin = accounts[1];
-    bep20ProxyAdmin = accounts[2];
+    console.log("deployer:" + deployer + " \n network: " + network + " \n accounts: "+  accounts)
+    //owner = accounts[0];
+    //proxyAdmin = accounts[1];
+    bep20ProxyAdmin = accounts[1];
     deployer.then(async () => {
         if (network =='rinkeby'){
             await deployer.deploy(ERC20ABC);
             await deployer.deploy(ETHSwapAgentImpl, "10000000");
         } else if (network == 'bscTestnet') {
+            await deployer.deploy(BEP20TokenImplementation);
+            await deployer.deploy(BSCSwapAgentImpl, BEP20TokenImplementation.address, "10000000000000000", bep20ProxyAdmin);
+        } else if (network=='development') {
+            await deployer.deploy(ERC20ABC);
+            await deployer.deploy(ETHSwapAgentImpl, "10000000");
             await deployer.deploy(BEP20TokenImplementation);
             await deployer.deploy(BSCSwapAgentImpl, BEP20TokenImplementation.address, "10000000000000000", bep20ProxyAdmin);
         }
